@@ -1,0 +1,47 @@
+// =================================
+// IMPORTACIONES
+// =================================
+@import 'abstracts/variables';
+
+// =================================
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    background-color: $background-color;
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    padding: 0px 25px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+
+    h1 {
+        padding: 12px 10px;
+        color: $color-primario;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 1.5rem;
+        letter-spacing: -0.5px;
+    }
+
+    .buscador {
+        flex: 1;
+        /* Ocupa un espacio libre */
+        min-width: 240px;
+        display: flex;
+    }
+
+    #buscar-input {
+        padding: 11px;
+        flex: 1;
+    }
+}
