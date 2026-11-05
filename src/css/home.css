@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap");
 * {
   box-sizing: border-box;
@@ -5,7 +6,7 @@
 }
 
 body {
-  background-color: #e6eaee;
+  background-color: #F7F7FB;
 }
 
 header {
@@ -18,21 +19,89 @@ header {
   justify-content: space-between;
   gap: 16px;
 }
-header h1 {
+header .logo_enlace {
   padding: 12px 10px;
   color: #F2542D;
+  text-decoration: none;
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-size: 1.5rem;
   letter-spacing: -0.5px;
+  cursor: pointer;
+  /* Transición fluida para la elevación y la sombra */
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+header .logo_enlace:hover {
+  transform: translateY(-3px);
+  /* Hace que el logo "flote" sutilmente hacia arriba */
+  text-shadow: 0 4px 15px rgba(235, 87, 87, 0.4);
+  /* Cambia el color rgba según tu $color-primario */
 }
 header .buscador {
   flex: 1;
-  /* Ocupa un espacio libre */
   min-width: 240px;
   display: flex;
+  position: relative;
 }
-header #buscar-input {
-  padding: 11px;
+header .buscador #buscar-input {
+  border: 1px solid #C9CDE0;
+  border-radius: 5px;
+  padding: 11px 11px 11px 30px;
   flex: 1;
+  outline: none;
+}
+header .buscador .boton_buscar {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  cursor: pointer;
+}
+header .buscador .boton_buscar #lupaBuscador {
+  width: 20px;
+  height: 20px;
+}
+header .contenedores_iniciar {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  position: relative;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  color: #4A5568;
+}
+header .contenedores_iniciar:hover {
+  background-color: rgba(235, 87, 87, 0.08);
+  color: #F2542D;
+}
+header .contenedores_iniciar::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  left: 50%;
+  bottom: 4px;
+  background: linear-gradient(90deg, #F2542D, #FF7A00);
+  position: absolute;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(-50%);
+}
+header .contenedores_iniciar:hover::after {
+  width: calc(100% - 20px);
+  left: 50%;
+}
+header .contenedores_iniciar #IconosInicioCabecera {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.25s ease;
+}
+header .contenedores_iniciar:hover #IconosInicioCabecera {
+  transform: translateY(-2px);
 }/*# sourceMappingURL=home.css.map */
