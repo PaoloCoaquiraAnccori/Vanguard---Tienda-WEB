@@ -15,6 +15,8 @@ body {
 }
 
 header {
+    top: 0;
+    left: 0;
     width: 100%;
     height: 80px;
     padding: 0px 25px;
@@ -22,7 +24,15 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: fixed;
     gap: 16px;
+    box-shadow: 1px 1px 10px rgba(106, 103, 103, 0.3);
+
+    .menu_icon {
+        width: 18px;
+        height: auto;
+        cursor: pointer;
+    }
 
     .logo_enlace {
         padding: 12px 10px;
@@ -92,7 +102,10 @@ header {
         transition: background-color 0.25s ease, color 0.25s ease;
 
         // Color de texto base alineado con tu header limpio
-        color: #4A5568;
+        a {
+            color: #4A5568;
+            text-decoration: none;
+        }
 
         // Fondo sutil al hacer hover que armoniza con los botones de acción
         &:hover {
@@ -128,6 +141,78 @@ header {
 
         &:hover #IconosInicioCabecera {
             transform: translateY(-2px); // Efecto visual de elevación ligera al pasar el mouse
+        }
+    }
+}
+
+main {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+    .contenedor_banner {
+        width: 100%;
+        height: 400px;
+        display: flex;
+        padding: 20px;
+
+        .banner_grande {
+            width: 100%;
+            height: 100%;
+            background-color: $color-primario;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .ofertas_del_dia {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+
+        .grid_Ofertas_del_dia {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            /* Crea columnas automáticas y adaptables */
+            gap: 16px;
+
+            article {
+                padding: 12px;
+                display: flex;
+                flex-direction: column;
+                background-color: rgb(223, 223, 215);
+            }
+        }
+    }
+}
+
+@media (max-width: 980px) {
+    header {
+        .contenedores_iniciar {
+            a {
+                display: none;
+            }
+        }
+    }
+}
+
+@media (max-width: 675px){
+    header {
+        h1 {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        .buscador {
+            display: none;
+        }
+        .contenedores_iniciar {
+            display: none;
         }
     }
 }
