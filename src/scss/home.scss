@@ -29,31 +29,141 @@ header {
     box-shadow: 1px 1px 10px rgba(106, 103, 103, 0.3);
 
     .menu_icon {
+        order: 1;
         width: 18px;
         height: auto;
         cursor: pointer;
     }
 
     .logo_enlace {
-        padding: 12px 10px;
-        color: $color-primario;
-        text-decoration: none;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 700;
-        font-size: 1.5rem;
-        letter-spacing: -0.5px;
-        cursor: pointer;
+        order: 2;
 
-        /* Transición fluida para la elevación y la sombra */
-        transition: transform 0.3s ease, text-shadow 0.3s ease;
+        a {
+            padding: 12px 10px;
+            color: $color-primario;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: -0.5px;
+            cursor: pointer;
 
-        &:hover {
-            transform: translateY(-3px);
-            /* Hace que el logo "flote" sutilmente hacia arriba */
-            text-shadow: 0 4px 15px rgba(235, 87, 87, 0.4);
-            /* Cambia el color rgba según tu $color-primario */
+            /* Transición fluida para la elevación y la sombra */
+            transition: transform 0.3s ease, text-shadow 0.3s ease;
+
+            &:hover {
+                transform: translateY(-3px);
+                /* Hace que el logo "flote" sutilmente hacia arriba */
+                text-shadow: 0 4px 15px rgba(235, 87, 87, 0.4);
+                /* Cambia el color rgba según tu $color-primario */
+            }
         }
     }
+
+    .buscador {
+        order: 3;
+        flex: 1;
+
+        min-width: 240px;
+        display: flex;
+        position: relative;
+
+        #buscar-input {
+            border: 1px solid #C9CDE0;
+            border-radius: 5px;
+            padding: 11px 11px 11px 30px;
+            flex: 1;
+            outline: none;
+        }
+
+        .boton_buscar {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            background-color: transparent;
+            position: absolute;
+            cursor: pointer;
+
+            #lupaBuscador {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+
+    .contenedor_nav_header {
+        order: 4;
+        display: flex;
+        gap: 12px;
+
+        .contenedores_iniciar {
+            background-color: transparent;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            position: relative;
+            padding: 8px 14px;
+            border-radius: 6px;
+            // Transición fluida para color y fondo estilo e-commerce moderno
+            transition: background-color 0.25s ease, color 0.25s ease;
+
+            // Color de texto base alineado con tu header limpio
+            a {
+                color: #4A5568;
+                text-decoration: none;
+            }
+
+            // Fondo sutil al hacer hover que armoniza con los botones de acción
+            &:hover {
+                background-color: rgba(235, 87, 87, 0.08); // Tono translúcido basado en tu rojo/naranja corporativo
+                color: $color-primario; // El texto adopta el color principal de Vanguard
+            }
+
+            // Línea inferior animada con el color oficial de tu marca
+            &::after {
+                content: "";
+                width: 0%;
+                height: 2px;
+                left: 50%; // Nace desde el centro
+                bottom: 4px; // Margen perfecto respecto al borde inferior
+                background: linear-gradient(90deg, $color-primario, #FF7A00); // Degradado dinámico acorde a tus botones naranjas
+                position: absolute;
+                transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                    left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                transform: translateX(-50%); // Centra la expansión de la línea
+            }
+
+            &:hover::after {
+                width: calc(100% - 20px); // Se expande de forma elegante dejando un pequeño margen lateral
+                left: 50%;
+            }
+
+            // Animación sutil del icono en la cabecera
+            #IconosInicioCabecera {
+                width: 16px;
+                height: 16px;
+                transition: transform 0.25s ease;
+            }
+
+            &:hover #IconosInicioCabecera {
+                transform: translateY(-2px); // Efecto visual de elevación ligera al pasar el mouse
+            }
+        }
+
+    }
+}
+
+//------- Fin header -------------------------
+.contenedor_buscador_adaptable {
+    width: 100%;
+    top: 80px;
+    position: absolute;
+    display: none;
 
     .buscador {
         flex: 1;
@@ -86,63 +196,6 @@ header {
             }
         }
     }
-
-    .contenedores_iniciar {
-        background-color: transparent;
-        border: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        cursor: pointer;
-        position: relative;
-        padding: 8px 14px;
-        border-radius: 6px;
-        // Transición fluida para color y fondo estilo e-commerce moderno
-        transition: background-color 0.25s ease, color 0.25s ease;
-
-        // Color de texto base alineado con tu header limpio
-        a {
-            color: #4A5568;
-            text-decoration: none;
-        }
-
-        // Fondo sutil al hacer hover que armoniza con los botones de acción
-        &:hover {
-            background-color: rgba(235, 87, 87, 0.08); // Tono translúcido basado en tu rojo/naranja corporativo
-            color: $color-primario; // El texto adopta el color principal de Vanguard
-        }
-
-        // Línea inferior animada con el color oficial de tu marca
-        &::after {
-            content: "";
-            width: 0%;
-            height: 2px;
-            left: 50%; // Nace desde el centro
-            bottom: 4px; // Margen perfecto respecto al borde inferior
-            background: linear-gradient(90deg, $color-primario, #FF7A00); // Degradado dinámico acorde a tus botones naranjas
-            position: absolute;
-            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateX(-50%); // Centra la expansión de la línea
-        }
-
-        &:hover::after {
-            width: calc(100% - 20px); // Se expande de forma elegante dejando un pequeño margen lateral
-            left: 50%;
-        }
-
-        // Animación sutil del icono en la cabecera
-        #IconosInicioCabecera {
-            width: 16px;
-            height: 16px;
-            transition: transform 0.25s ease;
-        }
-
-        &:hover #IconosInicioCabecera {
-            transform: translateY(-2px); // Efecto visual de elevación ligera al pasar el mouse
-        }
-    }
 }
 
 main {
@@ -160,12 +213,14 @@ main {
         .banner_grande {
             width: 100%;
             height: 100%;
-            background-color: $color-primario;
+            background: linear-gradient(120deg, $color-segundario, #14213D);
             display: flex;
             align-items: center;
             justify-content: center;
         }
     }
+
+    //----- main contenido ------------------------
 
     .ofertas_del_dia {
         width: 100%;
@@ -182,13 +237,37 @@ main {
             gap: 16px;
 
             article {
-                padding: 12px;
+                padding: 15px;
                 display: flex;
                 flex-direction: column;
-                background-color: rgb(223, 223, 215);
+                background-color: white;
+                border: 1px solid $color_borde_claro;
+                border-radius: 8px;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    background-color: $color_boton_claro;
+                }
+
+                button {
+                    display: flex;
+                    color: white;
+                    background-color: $color-primario;
+                    border: none;
+                    border-radius: 8px;
+                    justify-content: center;
+                    align-items: center;
+                    font-weight: 600;
+                    padding: 10px;
+                    cursor: pointer;
+                }
             }
         }
     }
+
+    //----- main contenido ------------------------
+
 }
 
 @media (max-width: 980px) {
@@ -201,18 +280,23 @@ main {
     }
 }
 
-@media (max-width: 675px){
+@media (max-width: 675px) {
     header {
         h1 {
             flex: 1;
-            display: flex;
-            justify-content: center;
         }
+
         .buscador {
             display: none;
         }
-        .contenedores_iniciar {
-            display: none;
+
+        .contenedor_nav_header {
+            gap: 0;
         }
+
+    }
+    .contenedor_buscador_adaptable {
+        display: flex;
+        background-color: red;
     }
 }

@@ -11,8 +11,8 @@
 <body>
     <header>
         <img src="assets/icons/menu.png" alt="menu" class="menu_icon" onclick="aparecer_menu">
-        <h1>
-            <a href="#" class="logo_enlace">Vanguard</a>
+        <h1 class="logo_enlace">
+            <a href="#">Vanguard</a>
         </h1>
         <form action="#" method="get" class="buscador">
             <input type="text" name="buscar-input" id="buscar-input" placeholder="Buscador con sugerencias">
@@ -20,19 +20,29 @@
                 <img src="assets/icons/lupa.png" alt="Lupa" id="lupaBuscador">
             </button>
         </form>
-        <button class="contenedores_iniciar">
-            <img src="assets/icons/usuario.png" alt="usuario" id="IconosInicioCabecera">
-            <a href="#">Ingresar / Registrarse</a>
-        </button>
-        <button class="contenedores_iniciar">
-            <img src="assets/icons/favorito.png" alt="favorito" id="IconosInicioCabecera">
-            <a href="#">Favoritos</a>
-        </button>
-        <button class="contenedores_iniciar">
-            <img src="assets/icons/carro-de-la-compra.png" alt="carrito" id="IconosInicioCabecera">
-            <a href="#">Carrito</a>
-        </button>
+        <div class="contenedor_nav_header">
+            <button class="contenedores_iniciar">
+                <img src="assets/icons/usuario.png" alt="usuario" id="IconosInicioCabecera">
+                <a href="#">Ingresar / Registrarse</a>
+            </button>
+            <button class="contenedores_iniciar">
+                <img src="assets/icons/favorito.png" alt="favorito" id="IconosInicioCabecera">
+                <a href="#">Favoritos</a>
+            </button>
+            <button class="contenedores_iniciar">
+                <img src="assets/icons/carro-de-la-compra.png" alt="carrito" id="IconosInicioCabecera">
+                <a href="#">Carrito</a>
+            </button>
+        </div>
     </header>
+    <section class="contenedor_buscador_adaptable">
+        <form action="#" method="get" class="buscador">
+            <input type="text" name="buscar-input" id="buscar-input" placeholder="Buscador con sugerencias">
+            <button type="submit" class="boton_buscar">
+                <img src="assets/icons/lupa.png" alt="Lupa" id="lupaBuscador">
+            </button>
+        </form>
+    </section>
 
     <main>
         <section class="contenedor_banner">
@@ -86,6 +96,11 @@
                     <h4>[Precio]</h4>
                     <button>Agregar</button>
                 </article>
+            </div>
+        </section>
+        <section class="ofertas_del_dia">
+            <h3>Lo más vendido</h3>
+            <div class="grid_Ofertas_del_dia">
                 <article>
                     <img src="" alt="Oferta 1">
                     <span>[Marca]</span>
@@ -121,7 +136,13 @@
                     <h4>[Precio]</h4>
                     <button>Agregar</button>
                 </article>
-
+                <article>
+                    <img src="" alt="Oferta 1">
+                    <span>[Marca]</span>
+                    <span>[Nombre del producto]</span>
+                    <h4>[Precio]</h4>
+                    <button>Agregar</button>
+                </article>
             </div>
         </section>
     </main>

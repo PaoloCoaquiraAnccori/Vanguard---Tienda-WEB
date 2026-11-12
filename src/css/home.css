@@ -24,11 +24,15 @@ header {
   box-shadow: 1px 1px 10px rgba(106, 103, 103, 0.3);
 }
 header .menu_icon {
+  order: 1;
   width: 18px;
   height: auto;
   cursor: pointer;
 }
 header .logo_enlace {
+  order: 2;
+}
+header .logo_enlace a {
   padding: 12px 10px;
   color: #F2542D;
   text-decoration: none;
@@ -40,13 +44,14 @@ header .logo_enlace {
   /* Transición fluida para la elevación y la sombra */
   transition: transform 0.3s ease, text-shadow 0.3s ease;
 }
-header .logo_enlace:hover {
+header .logo_enlace a:hover {
   transform: translateY(-3px);
   /* Hace que el logo "flote" sutilmente hacia arriba */
   text-shadow: 0 4px 15px rgba(235, 87, 87, 0.4);
   /* Cambia el color rgba según tu $color-primario */
 }
 header .buscador {
+  order: 3;
   flex: 1;
   min-width: 240px;
   display: flex;
@@ -73,7 +78,12 @@ header .buscador .boton_buscar #lupaBuscador {
   width: 20px;
   height: 20px;
 }
-header .contenedores_iniciar {
+header .contenedor_nav_header {
+  order: 4;
+  display: flex;
+  gap: 12px;
+}
+header .contenedor_nav_header .contenedores_iniciar {
   background-color: transparent;
   border: none;
   display: flex;
@@ -86,15 +96,15 @@ header .contenedores_iniciar {
   border-radius: 6px;
   transition: background-color 0.25s ease, color 0.25s ease;
 }
-header .contenedores_iniciar a {
+header .contenedor_nav_header .contenedores_iniciar a {
   color: #4A5568;
   text-decoration: none;
 }
-header .contenedores_iniciar:hover {
+header .contenedor_nav_header .contenedores_iniciar:hover {
   background-color: rgba(235, 87, 87, 0.08);
   color: #F2542D;
 }
-header .contenedores_iniciar::after {
+header .contenedor_nav_header .contenedores_iniciar::after {
   content: "";
   width: 0%;
   height: 2px;
@@ -105,17 +115,51 @@ header .contenedores_iniciar::after {
   transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transform: translateX(-50%);
 }
-header .contenedores_iniciar:hover::after {
+header .contenedor_nav_header .contenedores_iniciar:hover::after {
   width: calc(100% - 20px);
   left: 50%;
 }
-header .contenedores_iniciar #IconosInicioCabecera {
+header .contenedor_nav_header .contenedores_iniciar #IconosInicioCabecera {
   width: 16px;
   height: 16px;
   transition: transform 0.25s ease;
 }
-header .contenedores_iniciar:hover #IconosInicioCabecera {
+header .contenedor_nav_header .contenedores_iniciar:hover #IconosInicioCabecera {
   transform: translateY(-2px);
+}
+
+.contenedor_buscador_adaptable {
+  width: 100%;
+  top: 80px;
+  position: absolute;
+  display: none;
+}
+.contenedor_buscador_adaptable .buscador {
+  flex: 1;
+  min-width: 240px;
+  display: flex;
+  position: relative;
+}
+.contenedor_buscador_adaptable .buscador #buscar-input {
+  border: 1px solid #C9CDE0;
+  border-radius: 5px;
+  padding: 11px 11px 11px 30px;
+  flex: 1;
+  outline: none;
+}
+.contenedor_buscador_adaptable .buscador .boton_buscar {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  cursor: pointer;
+}
+.contenedor_buscador_adaptable .buscador .boton_buscar #lupaBuscador {
+  width: 20px;
+  height: 20px;
 }
 
 main {
@@ -133,7 +177,7 @@ main .contenedor_banner {
 main .contenedor_banner .banner_grande {
   width: 100%;
   height: 100%;
-  background-color: #F2542D;
+  background: linear-gradient(120deg, #4F46E5, #14213D);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -153,10 +197,29 @@ main .ofertas_del_dia .grid_Ofertas_del_dia {
   gap: 16px;
 }
 main .ofertas_del_dia .grid_Ofertas_del_dia article {
-  padding: 12px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
-  background-color: rgb(223, 223, 215);
+  background-color: white;
+  border: 1px solid #E3E5EE;
+  border-radius: 8px;
+}
+main .ofertas_del_dia .grid_Ofertas_del_dia article img {
+  width: 100%;
+  height: auto;
+  background-color: #EEF0FF;
+}
+main .ofertas_del_dia .grid_Ofertas_del_dia article button {
+  display: flex;
+  color: white;
+  background-color: #F2542D;
+  border: none;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  padding: 10px;
+  cursor: pointer;
 }
 
 @media (max-width: 980px) {
@@ -167,13 +230,15 @@ main .ofertas_del_dia .grid_Ofertas_del_dia article {
 @media (max-width: 675px) {
   header h1 {
     flex: 1;
-    display: flex;
-    justify-content: center;
   }
   header .buscador {
     display: none;
   }
-  header .contenedores_iniciar {
-    display: none;
+  header .contenedor_nav_header {
+    gap: 0;
+  }
+  .contenedor_buscador_adaptable {
+    display: flex;
+    background-color: red;
   }
 }/*# sourceMappingURL=home.css.map */
